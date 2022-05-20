@@ -1,0 +1,19 @@
+runners:
+ example-runner:
+  image: ubuntu-generic
+
+jobs:   
+ hello-world:
+  runner: example-runner
+  
+  steps:
+   - run:
+      name: Say Hello World
+      command: echo "Hello World"
+      
+workflows:
+ hello-world-workflow:
+  triggers:
+   - manual
+  jobs:
+   - hello-world
